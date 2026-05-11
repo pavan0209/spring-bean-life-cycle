@@ -13,5 +13,7 @@ public class Main {
 
         studentDAO.selectAllRows();
         studentDAO.deleteStudentRecord(10);
+
+        ((ClassPathXmlApplicationContext) context).close();
     }
 }

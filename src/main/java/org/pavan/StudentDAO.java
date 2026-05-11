@@ -1,6 +1,7 @@
 package org.pavan;
 
 import jakarta.annotation.PostConstruct;
+import jakarta.annotation.PreDestroy;
 
 import java.sql.*;
 
@@ -48,11 +49,6 @@ public class StudentDAO {
         con = DriverManager.getConnection(url, userName, password);
     }
 
-    public void closeConnection() throws SQLException {
-        // closing connection
-        con.close();
-    }
-
     public void selectAllRows() throws ClassNotFoundException, SQLException {
 
         System.out.println("Retrieving all students data...");
@@ -68,8 +64,6 @@ public class StudentDAO {
 
             System.out.println(id + " " + name + " " + fee + " " + branch);
         }
-
-//        closeConnection();
     }
 
     public void deleteStudentRecord(int id) throws ClassNotFoundException, SQLException {
@@ -79,7 +73,12 @@ public class StudentDAO {
 
         stmt.executeUpdate("DELETE FROM studentInfo WHERE id=" + id);
         System.out.println("Record deleted with id: " + id);
+    }
 
-//        closeConnection();
+    @PreDestroy
+    public void closeConnection() throws SQLException {
+        System.out.println("Closing connection");
+        // closing connection
+        con.close();
     }
 }
