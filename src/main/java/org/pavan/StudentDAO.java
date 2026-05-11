@@ -75,10 +75,15 @@ public class StudentDAO {
         System.out.println("Record deleted with id: " + id);
     }
 
-    @PreDestroy
     public void closeConnection() throws SQLException {
         System.out.println("Closing connection");
         // closing connection
         con.close();
+    }
+
+    @PreDestroy
+    public void destroy() throws SQLException {
+        System.out.println("In destroy method");
+        closeConnection();
     }
 }
