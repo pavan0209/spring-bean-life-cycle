@@ -14,6 +14,7 @@ public class Main {
         studentDAO.selectAllRows();
         studentDAO.deleteStudentRecord(10);
 
-        context.close();
+        context.registerShutdownHook();
+//        context.close();
     }
 }
