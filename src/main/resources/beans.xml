@@ -16,5 +16,5 @@
         <property name="password" value="root"/>
     </bean>
 
-
+<!--    <bean class="org.springframework.context.annotation.CommonAnnotationBeanPostProcessor"/>-->
 </beans>
