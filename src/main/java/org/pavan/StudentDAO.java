@@ -33,6 +33,11 @@ public class StudentDAO {
     }
 
     @PostConstruct
+    public void init() throws SQLException, ClassNotFoundException {
+        System.out.println("In init method");
+        createStudentDBConnection();
+    }
+
     public void createStudentDBConnection() throws ClassNotFoundException, SQLException {
 
         System.out.println("creating connection...");
