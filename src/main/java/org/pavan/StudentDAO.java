@@ -32,6 +32,7 @@ public class StudentDAO {
         this.password = password;
     }
 
+    @PostConstruct
     public void createStudentDBConnection() throws ClassNotFoundException, SQLException {
 
         System.out.println("creating connection...");
@@ -50,8 +51,6 @@ public class StudentDAO {
     public void selectAllRows() throws ClassNotFoundException, SQLException {
 
         System.out.println("Retrieving all students data...");
-        createStudentDBConnection();
-
         // execute query
         Statement stmt = con.createStatement();
         ResultSet rs = stmt.executeQuery("SELECT * FROM studentInfo");
@@ -65,12 +64,10 @@ public class StudentDAO {
             System.out.println(id + " " + name + " " + fee + " " + branch);
         }
 
-        closeConnection();
+//        closeConnection();
     }
 
     public void deleteStudentRecord(int id) throws ClassNotFoundException, SQLException {
-
-        createStudentDBConnection();
 
         // execute query
         Statement stmt = con.createStatement();
@@ -78,6 +75,6 @@ public class StudentDAO {
         stmt.executeUpdate("DELETE FROM studentInfo WHERE id=" + id);
         System.out.println("Record deleted with id: " + id);
 
-        closeConnection();
+//        closeConnection();
     }
 }
