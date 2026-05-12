@@ -24,6 +24,7 @@ A practical implementation of Spring Bean Life Cycle management using annotation
 | StudentDAO | Handles JDBC CRUD database operations |
 | Spring Container | Creates, manages, and destroys beans |
 
+<br>
 <div align="center">
 
 <img width="100%" alt="Spring Bean Life Cycle" src="bean_life_cycle.png">
